@@ -1,0 +1,56 @@
+<!-- put your form with inputs here -->
+<style>
+  h1 {
+      text-align: center;
+  }
+  div.all {
+      position:relative;
+      left:650px;
+      top:-300px;
+      width:600px;
+      word-wrap: break-word;
+  }
+  div.x {
+      border-style: solid;
+      border-width: 1px;
+  }
+  #name{
+      position:relative;
+      left:10px;
+  }
+  #comment {
+      position: relative;
+      left:10px;
+      top:-10px;
+      word-wrap: break-word;
+      width:525px;
+
+  }
+  form {
+      position:relative;
+      left:200px;
+      width:300px;
+  }
+</style>
+
+<h1>Forum</h1>
+<br>
+<br>
+<form action="sub" method="post">
+  <fieldset>
+  Username: <br><input type="text" name='uname'>
+  </br>
+  </br>
+  Comment: <br><textarea type="text" name='comment' rows="10" cols="50"></textarea>
+  </br>
+  <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+<!-- here is where you write your iterative code to display contents of the database -->
+
+<div class="all">
+  <% @items.all.reverse.each do |x| %>
+      <div class="x"><div id="name"><h3> <%= x[:uname]%>:</h3></div><div id="comment"><%= x[:comment] %></div></div><br>
+  <% end %>
+</div>
